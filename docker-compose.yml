@@ -1,0 +1,25 @@
+services:
+  ai-council-trader:
+    # Build the image using the Dockerfile in the current directory
+    build: .
+    
+    # Give your container a clean, memorable name
+    container_name: ai_council_trader
+    
+    # Environment variables (Optional: for passing sensitive config later)
+    # The current setup reads the API URL from Config.py, but this is how you'd override it:
+    # environment:
+    #   - OLLAMA_API_URL=https://ollama.craysoftware.com/api/generate
+      
+    # Use 'tty: true' and 'stdin_open: true' to keep the container running and allow 
+    # interaction with the console menus (Live Council Debate, Backtest, etc.)
+    tty: true
+    stdin_open: true
+    
+    # Use 'restart: on-failure' or 'always' if you want it to automatically restart
+    # restart: unless-stopped
+    
+    # Optional: Mount your local code directory. 
+    # This is excellent for development, as changes to council.py are reflected instantly.
+    # volumes:
+    #   - .:/app
